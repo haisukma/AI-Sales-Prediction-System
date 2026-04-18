@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, 'model.pkl')
 SCALER_PATH = os.path.join(BASE_DIR, 'scaler.pkl')
 
-df = pd.read_csv('/Users/diajeng/Documents/AI-Sales-Prediction-System/data/sales_data.csv')
+df = pd.read_csv('/Users/diajeng/Documents/AI Sales Prediction System/data/sales_data.csv')
 
 df['status'] = df['status'].map({'Laris': 1, 'Tidak': 0})
 
