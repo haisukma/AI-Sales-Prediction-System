@@ -9,3 +9,8 @@ seaborn
 fastapi
 uvicorn
 pydantic
+
+python-jose
+python-dotenv
+python-multipart
+passlib[bcrypt]
