@@ -115,6 +115,11 @@ AI-Sales-Prediction-System/
 ### 1. Backend
 
 ```bash
+python -m venv venv
+Aktifkan venv di windows:
+venv\Scripts\activate 
+Mac/Linux:
+source venv/bin/activate
 pip install -r requirements.txt
 uvicorn backend.main:app --reload
 ```
