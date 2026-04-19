@@ -40,10 +40,18 @@ def root():
 
 security = HTTPBearer()
 
+# def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
+#     try:
+#         jwt.decode(credentials.credentials, SECRET_KEY, algorithms=[ALGORITHM])
+#     except:
+#         raise HTTPException(status_code=401, detail="Invalid token")
+
 def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
     try:
+        print("TOKEN MASUK:", credentials.credentials)
         jwt.decode(credentials.credentials, SECRET_KEY, algorithms=[ALGORITHM])
-    except:
+    except Exception as e:
+        print("JWT ERROR:", str(e))
         raise HTTPException(status_code=401, detail="Invalid token")
 
 @app.post("/login")

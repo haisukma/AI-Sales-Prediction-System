@@ -22,22 +22,26 @@ function Dashboard() {
 
   const handlePredict = async () => {
     try {
-      const res = await axios.post(`${API}/predict`, {
+        console.log("TOKEN:", token);
+        console.log("INPUT:", jumlah, harga, diskon);
+
+        const res = await axios.post(`${API}/predict`, {
         jumlah_penjualan: Number(jumlah),
         harga: Number(harga),
         diskon: Number(diskon)
-      }, {
+        }, {
         headers: {
-          Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${token}`
         }
-      });
+        });
 
-      setResult(res.data.prediction);
+        setResult(res.data.prediction);
 
     } catch (err) {
-      alert("Gagal predict (cek token / input)");
+        console.log("ERROR DETAIL:", err.response?.data || err.message);
+        alert("Gagal predict");
     }
-  };
+};
 
   return (
     <div style={{ padding: 20, background: "#f5f5f5", minHeight: "100vh" }}>
